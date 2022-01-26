@@ -6,6 +6,13 @@ The purpose of this guide is to provide a simple easy test bench setup for compa
 First run:
 ```
 sudo apt-get update
+sudo apt-get install get cmake libpython3-dev python3-numpy
+git clone --recursive https://github.com/dusty-nv/jetson-inference.git
 ```
-
+```
+cd jetson-inference/
+mkdir build
+cd build
+cmale../
+```
 
