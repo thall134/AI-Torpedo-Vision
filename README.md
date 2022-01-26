@@ -4,6 +4,8 @@ Quick start guide on how configure Jetson Nano 4GB to run a simple object detect
 The purpose of this guide is to provide a simple easy test bench setup for comparing effectivness of different image filtering functions.
 
 First run:
-'''Sudo apt-get update'''
+'''
+sudo apt-get update
+'''
 
 
