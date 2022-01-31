@@ -26,3 +26,8 @@ The "*" is the wild card chracteristic that allows you to run the images of the 
 images/test/
 ```
 Defines the output folder. Folder needs to be in the container of the host.
+```
+import jetson.inference
+import jetson.utils
+
+net = jetson.i
