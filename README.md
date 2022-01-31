@@ -26,8 +26,26 @@ The "*" is the wild card chracteristic that allows you to run the images of the 
 images/test/
 ```
 Defines the output folder. Folder needs to be in the container of the host.
+
+# Running Live Video Code
+Below is the code "my detection" modified to run the popular model ssd-mobilenet-v2. Our submarines jetsons runs this same model during debug mode. Running will allow the user to see real time confidence value that is above the threshold of 50% on objects the model is trained to identify.
+
 ```
 import jetson.inference
 import jetson.utils
 
-net = jetson.i
+net = jetson.inference.detectNet("ssd-mobilenet-v2", threshold=0.5)
+camera = jetson.utils.gstCamera(1280,720, "/dev/video0")      # '/dev/video0' for V4L2
+display = jetson.utils.glDisplay() # 'my_video.mp4' for file
+
+while display.IsOpen():
+	img, width, height = camera.CaptureRGBA()
+	detections = net.Detect(img,width,height)
+	display.RenderOnce(img,width,height)
+	display.SetTitle("Object Detection | Network {:.0f} FPS".format(net.GetNetworkFPS()))
+```
+# Running code for single image
+```
+cd jetson-inference/build/aarch64/bin
+./detectnet images/[image name].jpg images/test/[output name].jpg
+```
