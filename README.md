@@ -44,6 +44,10 @@ while display.IsOpen():
 	display.RenderOnce(img,width,height)
 	display.SetTitle("Object Detection | Network {:.0f} FPS".format(net.GetNetworkFPS()))
 ```
+To run the "my-detection" code:
+```
+python3 my-detection.py
+```
 # Running code for single image
 ```
 cd jetson-inference/build/aarch64/bin
